@@ -1,0 +1,252 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 23
+Server version: 8.0.42 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE TABLE dept(deptno INT PRIMARY KEY, dname VARCHAR(20), loc VARCHAR(20) );
+ERROR 1046 (3D000): No database selected
+mysql> SHOW databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| 25cse135                   |
+| aimlg_ass4                 |
+| aimlg_assignment4          |
+| ak                         |
+| alok                       |
+| college                    |
+| companydb                  |
+| companydb12                |
+| companydb21                |
+| dbms2026                   |
+| emp_4                      |
+| employee                   |
+| employee1                  |
+| employee6                  |
+| employee_db                |
+| employee_details           |
+| employee_ka_details        |
+| employee_ka_details1       |
+| employee_management_system |
+| employeedb                 |
+| employeedpb1               |
+| employeee                  |
+| employeelab5               |
+| emplyoeee                  |
+| example                    |
+| exp07                      |
+| exp4_companydb             |
+| exp6                       |
+| exp7                       |
+| exp_08                     |
+| exp_4                      |
+| exp_7                      |
+| expdb                      |
+| information_schema         |
+| lab4                       |
+| lab_ddl_dml                |
+| lab_ddl_dml001             |
+| librarydb                  |
+| librarydbs                 |
+| musabani                   |
+| mysql                      |
+| om                         |
+| performance_schema         |
+| person_info                |
+| persons                    |
+| practice                   |
+| priyanshu                  |
+| prodstoredb                |
+| productstoredb             |
+| prstdb                     |
+| retprdb                    |
+| sec_e_cse                  |
+| sql04                      |
+| sql_01                     |
+| sql_filtering              |
+| sql_filtering01            |
+| sqlexp7                    |
+| std                        |
+| student_db                 |
+| studentcoursedb            |
+| supermarketdb              |
++----------------------------+
+61 rows in set (0.01 sec)
+
+mysql> create databse 25cse042;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse 25cse042' at line 1
+mysql> create database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create database
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create databse 25cse042;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse 25cse042' at line 1
+mysql> create databse dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse dept' at line 1
+mysql> create databse deptffff;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databse deptffff' at line 1
+mysql> CREATE DATABASE database_name;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> CREATE DATABASE 25cse042;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use 25cse042;
+Database changed
+mysql> CREATE TABLE dept(deptno INT PRIMARY KEY, dname VARCHAR(20), loc VARCHAR(20) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_25cse042 |
++--------------------+
+| dept               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from dept ;
+Empty set (0.01 sec)
+
+mysql> CREATE TABLE emp(empno INT PRIMARY KEY ,ename VARCHAR(20), job VARCHAR(20),mgr INT, sal INT, deptno INT , FOREGIN KEY (deptno) REFERENCES dept(deptno) ) ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'KEY (deptno) REFERENCES dept(deptno) )' at line 1
+mysql> CREATE TABLE emp(empno INT PRIMARY KEY ,ename VARCHAR(20), job VARCHAR(20),mgr INT, sal INT, deptno INT , FOREGIN KEY(deptno) REFERENCES dept(deptno) ) ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'KEY(deptno) REFERENCES dept(deptno) )' at line 1
+mysql> CREATE TABLE emp(empno INT PRIMARY KEY ,ename VARCHAR(20), job VARCHAR(20),mgr INT, sal INT, deptno INT , FOREIGN KEY(deptno) REFERENCES dept(deptno) ) ;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE salgrade( grade INT, losal INT ,hisal INT ) ;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE areas( city VARCHAR(20), state VARCHAR(20) ) ;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO dept VALUES( 10, 'ACCOUNTING' ,'NEW YORK');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dept VALUES( 20, 'RESEARCH' ,'DALLAS');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO dept VALUES( 30, 'SALES' ,'CHICAGO');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dept VALUES( 40, 'OPERATION' ,'BOSTON');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_25cse042 |
++--------------------+
+| areas              |
+| dept               |
+| emp                |
+| salgrade           |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from dept ;
++--------+------------+----------+
+| deptno | dname      | loc      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATION  | BOSTON   |
++--------+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO emp VALUES( , '' ,'' );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', '' ,'' )' at line 1
+mysql> INSERT INTO emp VALUES( 7369, 'SMITH' ,'CLERK', 7902,800,20 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7499, 'ALLEN' ,'SALESMAN', 7698,1600,30 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7521, 'WARD' ,'SALESMAN', 7698,1250,30 );
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO emp VALUES( 7566, 'JONES' ,'MANAGER', 7839,2975,20 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 3698, 'BLAKE' ,'MANAGER', 7839,2850,30 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7698, 'CLARK' ,'MANAGER', 7839,2450,10 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7788, 'SCOTT' ,'ANALIST', 7566,3000,20 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7739, 'KING' ,'PRESIDENT', NULL,5000,10 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7844, 'TURNER' ,'SALESMAN', 7698,1500,30 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7900, 'JAMES' ,'CLERK', 7698,950,30 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> INSERT INTO salgrade VALUES(1,700,1200);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO emp VALUES( 7902, 'FORD' ,'ANALIST', 7566,3000,20 );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO areas VALUES('NEW YORK',NY);
+ERROR 1054 (42S22): Unknown column 'NY' in 'field list'
+mysql> INSERT INTO areas VALUES('NEW YORK','NY');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO areas VALUES('DALLAS','TX');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO areas VALUES('CHICAGO','IL');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO areas VALUES('BOSTON','MA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT e.empno , e.ename,d.dname,d.loc FROM emp e JOIN dept d ON e.deptmo = d.deptno;
+ERROR 1054 (42S22): Unknown column 'e.deptmo' in 'on clause'
+mysql> SELECT e.empno , e.ename,d.dname,d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno;
++-------+--------+------------+----------+
+| empno | ename  | dname      | loc      |
++-------+--------+------------+----------+
+|  7698 | CLARK  | ACCOUNTING | NEW YORK |
+|  7739 | KING   | ACCOUNTING | NEW YORK |
+|  7369 | SMITH  | RESEARCH   | DALLAS   |
+|  7566 | JONES  | RESEARCH   | DALLAS   |
+|  7788 | SCOTT  | RESEARCH   | DALLAS   |
+|  7902 | FORD   | RESEARCH   | DALLAS   |
+|  3698 | BLAKE  | SALES      | CHICAGO  |
+|  7499 | ALLEN  | SALES      | CHICAGO  |
+|  7521 | WARD   | SALES      | CHICAGO  |
+|  7844 | TURNER | SALES      | CHICAGO  |
+|  7900 | JAMES  | SALES      | CHICAGO  |
++-------+--------+------------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT e.empno,e.ename,e.sal,s.grade FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal;
++-------+-------+------+-------+
+| empno | ename | sal  | grade |
++-------+-------+------+-------+
+|  7369 | SMITH |  800 |     1 |
+|  7900 | JAMES |  950 |     1 |
++-------+-------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql>
